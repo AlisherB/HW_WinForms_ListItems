@@ -12,7 +12,6 @@ namespace Task
 {
     public partial class OilAndCafe : Form
     {
-        private int sumTotal = 0;
         private int priceGas;
 
         public OilAndCafe()
@@ -162,8 +161,9 @@ namespace Task
         }
 
         private int sumProduct = 0;
+        private int sumTotal = 0;
 
-        private void TextBoxCafePayment_TextChanged(object sender, EventArgs e)
+        private void buttonCalc_Click(object sender, EventArgs e)
         {
             int priceHotDog = Int32.Parse(textBoxPriceHotDog.Text);
             int priceGamb = Int32.Parse(textBoxPriceGamb.Text);
@@ -172,35 +172,65 @@ namespace Task
 
             int countHotDog, countGamb, countFri, countCola;
 
-            if (textBoxCountHotDog.Text != null)
+            if (checkBoxHotDog.Checked)
             {
-                countHotDog = Int32.Parse(textBoxCountHotDog.Text);
-                sumProduct += (priceHotDog * countHotDog);
-                labelCafePayment.Text = sumProduct.ToString();
+                if (textBoxCountHotDog.Text != null)
+                {
+                    bool res = Int32.TryParse(textBoxCountHotDog.Text, out countHotDog);
+                    sumProduct += (priceHotDog * countHotDog);
+                }
             }
-            else if (textBoxCountGamb.Text != null)
+            else
             {
-                countGamb = Int32.Parse(textBoxCountGamb.Text);
-                sumProduct += (priceGamb * countGamb);
-                labelCafePayment.Text = sumProduct.ToString();
+                sumProduct = 0;
             }
-            else if (textBoxCountFri.Text != null)
-            {
-                countFri = Int32.Parse(textBoxCountFri.Text);
-                sumProduct += (priceFri * countFri);
-                labelCafePayment.Text = sumProduct.ToString();
-            }
-            else if (textBoxCountCola.Text != null)
-            {
-                countCola = Int32.Parse(textBoxCountCola.Text);
-                sumProduct += (priceCola * countCola);
-                labelCafePayment.Text = sumProduct.ToString();
-            }
-        }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //sumTotal += (sumProduct + s 
+            if (checkBoxGamburger.Checked)
+            {
+                if (textBoxCountGamb.Text != null)
+                {
+                    bool res = Int32.TryParse(textBoxCountGamb.Text, out countGamb);
+                    sumProduct += (priceGamb * countGamb);
+                }
+            }
+            else
+            {
+                sumProduct = 0;
+            }
+
+            if (checkBoxFri.Checked)
+            {
+                if (textBoxCountFri.Text != null)
+                {
+                    bool res = Int32.TryParse(textBoxCountFri.Text, out countFri);
+                    sumProduct += (priceFri * countFri);
+                }
+            }
+            else
+            {
+                sumProduct = 0;
+            }
+
+            if (checkBoxCola.Checked)
+            {
+                if (textBoxCountCola.Text != null)
+                {
+                    bool res = Int32.TryParse(textBoxCountCola.Text, out countCola);
+                    sumProduct += (priceCola * countCola);
+                }
+            }
+            else
+            {
+                sumProduct = 0;
+            }
+
+            labelCafePayment.Text = sumProduct.ToString();
+
+
+            //checkBoxHotDog.Checked = false;
+            //checkBoxGamburger.Checked = false;
+            //checkBoxFri.Checked = false;
+            //checkBoxCola.Checked = false;
         }
     }
 }
