@@ -179,7 +179,6 @@
             // 
             // panel1
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.radioButtonSumGas);
             this.panel1.Controls.Add(this.radioButtonGasCount);
             this.panel1.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -191,12 +190,12 @@
             // radioButtonSumGas
             // 
             this.radioButtonSumGas.AutoSize = true;
+            this.radioButtonSumGas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioButtonSumGas.ForeColor = System.Drawing.SystemColors.ControlText;
             this.radioButtonSumGas.Location = new System.Drawing.Point(4, 38);
             this.radioButtonSumGas.Name = "radioButtonSumGas";
             this.radioButtonSumGas.Size = new System.Drawing.Size(59, 17);
             this.radioButtonSumGas.TabIndex = 1;
-            this.radioButtonSumGas.TabStop = true;
             this.radioButtonSumGas.Text = "Сумма";
             this.radioButtonSumGas.UseVisualStyleBackColor = true;
             this.radioButtonSumGas.CheckedChanged += new System.EventHandler(this.RadioButtonSum_CheckedChanged);
@@ -204,6 +203,8 @@
             // radioButtonGasCount
             // 
             this.radioButtonGasCount.AutoSize = true;
+            this.radioButtonGasCount.Checked = true;
+            this.radioButtonGasCount.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioButtonGasCount.ForeColor = System.Drawing.SystemColors.ControlText;
             this.radioButtonGasCount.Location = new System.Drawing.Point(4, 8);
             this.radioButtonGasCount.Name = "radioButtonGasCount";
@@ -423,6 +424,7 @@
             // checkBoxCola
             // 
             this.checkBoxCola.AutoSize = true;
+            this.checkBoxCola.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkBoxCola.ForeColor = System.Drawing.SystemColors.ControlText;
             this.checkBoxCola.Location = new System.Drawing.Point(7, 125);
             this.checkBoxCola.Name = "checkBoxCola";
@@ -435,6 +437,7 @@
             // checkBoxFri
             // 
             this.checkBoxFri.AutoSize = true;
+            this.checkBoxFri.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkBoxFri.ForeColor = System.Drawing.SystemColors.ControlText;
             this.checkBoxFri.Location = new System.Drawing.Point(7, 96);
             this.checkBoxFri.Name = "checkBoxFri";
@@ -447,6 +450,7 @@
             // checkBoxGamburger
             // 
             this.checkBoxGamburger.AutoSize = true;
+            this.checkBoxGamburger.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkBoxGamburger.ForeColor = System.Drawing.SystemColors.ControlText;
             this.checkBoxGamburger.Location = new System.Drawing.Point(7, 66);
             this.checkBoxGamburger.Name = "checkBoxGamburger";
@@ -459,6 +463,7 @@
             // checkBoxHotDog
             // 
             this.checkBoxHotDog.AutoSize = true;
+            this.checkBoxHotDog.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkBoxHotDog.ForeColor = System.Drawing.SystemColors.ControlText;
             this.checkBoxHotDog.Location = new System.Drawing.Point(7, 36);
             this.checkBoxHotDog.Name = "checkBoxHotDog";
@@ -509,6 +514,7 @@
             // 
             // buttonCalc
             // 
+            this.buttonCalc.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonCalc.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonCalc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonCalc.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -518,16 +524,18 @@
             this.buttonCalc.TabIndex = 0;
             this.buttonCalc.Text = "Рассчитать";
             this.buttonCalc.UseVisualStyleBackColor = true;
-            this.buttonCalc.Click += new System.EventHandler(this.buttonCalc_Click);
+            this.buttonCalc.Click += new System.EventHandler(this.ButtonCalc_Click);
             // 
             // OilAndCafe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(528, 416);
+            this.ClientSize = new System.Drawing.Size(529, 416);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBoxCafe);
             this.Controls.Add(this.groupBoxGasStation);
+            this.MaximumSize = new System.Drawing.Size(545, 455);
+            this.MinimumSize = new System.Drawing.Size(545, 455);
             this.Name = "OilAndCafe";
             this.Text = "BestOil";
             this.groupBoxGasStation.ResumeLayout(false);

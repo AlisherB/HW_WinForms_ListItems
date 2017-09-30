@@ -1,19 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Timers;
 namespace Task
 {
     public partial class OilAndCafe : Form
     {
-        private int priceGas;
-
+        private int priceGas80 = 90, priceGas92 = 140, priceGas95 = 150;
+        System.Timers.Timer timer;
         public OilAndCafe()
         {
             InitializeComponent();
@@ -23,18 +16,15 @@ namespace Task
         {
             if (comboBoxGas.Text == "АИ-80")
             {
-                priceGas = 90;
-                textBoxPriceGas.Text = priceGas.ToString();
+                textBoxPriceGas.Text = priceGas80.ToString();
             }
             else if (comboBoxGas.Text == "АИ-92")
             {
-                priceGas = 140;
-                textBoxPriceGas.Text = priceGas.ToString();
+                textBoxPriceGas.Text = priceGas92.ToString();
             }
             else if (comboBoxGas.Text == "АИ-95")
             {
-                priceGas = 150;
-                textBoxPriceGas.Text = priceGas.ToString();
+                textBoxPriceGas.Text = priceGas95.ToString();
             }
         }
 
@@ -42,6 +32,7 @@ namespace Task
         {
             if (radioButtonGasCount.Checked)
             {
+                groupBoxGasToPay.Text = "К оплате:";
                 textBoxSumGas.Enabled = false;
                 textBoxCountGas.Enabled = true;
                 textBoxCountGas.Focus();
@@ -57,6 +48,7 @@ namespace Task
         {
             if (radioButtonSumGas.Checked)
             {
+                groupBoxGasToPay.Text = "К выдаче:";
                 textBoxCountGas.Enabled = false;
                 textBoxSumGas.Enabled = true;
                 textBoxSumGas.Focus();
@@ -162,75 +154,78 @@ namespace Task
 
         private int sumProduct = 0;
         private int sumTotal = 0;
-
-        private void buttonCalc_Click(object sender, EventArgs e)
+        private int countHotDog = 0, countGamb = 0, countFri = 0, countCola = 0;
+        private int priceHot = 250;
+        private void ButtonCalc_Click(object sender, EventArgs e)
         {
-            int priceHotDog = Int32.Parse(textBoxPriceHotDog.Text);
-            int priceGamb = Int32.Parse(textBoxPriceGamb.Text);
-            int priceFri = Int32.Parse(textBoxPriceFri.Text);
-            int priceCola = Int32.Parse(textBoxPriceCola.Text);
-
-            int countHotDog, countGamb, countFri, countCola;
-
-            if (checkBoxHotDog.Checked)
+            if (checkBoxHotDog.Checked | checkBoxGamburger.Checked | checkBoxFri.Checked | checkBoxCola.Checked)
             {
-                if (textBoxCountHotDog.Text != null)
+                int priceHotDog = Int32.Parse(textBoxPriceHotDog.Text);
+
+                if (checkBoxHotDog.Checked)
                 {
-                    bool res = Int32.TryParse(textBoxCountHotDog.Text, out countHotDog);
-                    sumProduct += (priceHotDog * countHotDog);
+                    if (textBoxCountHotDog.Text != null)
+                    {
+                        bool resHotDog = Int32.TryParse(textBoxCountHotDog.Text, out countHotDog);
+                        sumProduct += priceHotDog * countHotDog;
+                    }
+                }
+
+                int priceGamb = Int32.Parse(textBoxPriceGamb.Text);
+
+                if (checkBoxGamburger.Checked)
+                {
+                    if (textBoxCountGamb.Text != null)
+                    {
+                        bool resGamb = Int32.TryParse(textBoxCountGamb.Text, out countGamb);
+                        sumProduct += priceGamb * countGamb;
+                    }
+                }
+
+                int priceFri = Int32.Parse(textBoxPriceFri.Text);
+
+                if (checkBoxFri.Checked)
+                {
+                    if (textBoxCountFri.Text != null)
+                    {
+                        bool resFri = Int32.TryParse(textBoxCountFri.Text, out countFri);
+                        sumProduct += priceFri * countFri;
+                    }
+                }
+
+                int priceCola = Int32.Parse(textBoxPriceCola.Text);
+
+                if (checkBoxCola.Checked)
+                {
+                    if (textBoxCountCola.Text != null)
+                    {
+                        bool resCola = Int32.TryParse(textBoxCountCola.Text, out countCola);
+                        sumProduct += priceCola * countCola;
+                    }
                 }
             }
             else
             {
                 sumProduct = 0;
-            }
-
-            if (checkBoxGamburger.Checked)
-            {
-                if (textBoxCountGamb.Text != null)
-                {
-                    bool res = Int32.TryParse(textBoxCountGamb.Text, out countGamb);
-                    sumProduct += (priceGamb * countGamb);
-                }
-            }
-            else
-            {
-                sumProduct = 0;
-            }
-
-            if (checkBoxFri.Checked)
-            {
-                if (textBoxCountFri.Text != null)
-                {
-                    bool res = Int32.TryParse(textBoxCountFri.Text, out countFri);
-                    sumProduct += (priceFri * countFri);
-                }
-            }
-            else
-            {
-                sumProduct = 0;
-            }
-
-            if (checkBoxCola.Checked)
-            {
-                if (textBoxCountCola.Text != null)
-                {
-                    bool res = Int32.TryParse(textBoxCountCola.Text, out countCola);
-                    sumProduct += (priceCola * countCola);
-                }
-            }
-            else
-            {
-                sumProduct = 0;
+                labelCafePayment.Text = sumProduct.ToString();
             }
 
             labelCafePayment.Text = sumProduct.ToString();
+            timer = new System.Timers.Timer(3000);
+            timer.Elapsed += new ElapsedEventHandler(ClearForm);
+            timer.Enabled = true;
+            //timer.Start();
+            
+            
 
-
-            //checkBoxHotDog.Checked = false;
-            //checkBoxGamburger.Checked = false;
-            //checkBoxFri.Checked = false;
-            //checkBoxCola.Checked = false;
+        }
+        private static void ClearForm(object sender, ElapsedEventArgs e)
+        {
+            MessageBox.Show("Очистить форму?");
+            checkBoxHotDog.Checked = false;
+            checkBoxGamburger.Checked = false;
+            checkBoxFri.Checked = false;
+            checkBoxCola.Checked = false;
         }
     }
 }

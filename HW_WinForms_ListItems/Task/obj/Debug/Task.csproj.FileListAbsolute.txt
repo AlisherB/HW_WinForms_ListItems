@@ -17,3 +17,13 @@ C:\Users\Alisher\OneDrive\Documents\Академия Шаг\WinForms\HomeWorks\H
 C:\Users\Alisher\OneDrive\Documents\Академия Шаг\WinForms\HomeWorks\HW_WinForms_ListItems\Task\obj\Debug\Task.csproj.CoreCompileInputs.cache
 C:\Users\Alisher\OneDrive\Documents\Академия Шаг\WinForms\HomeWorks\HW_WinForms_ListItems\Task\obj\Debug\Task.exe
 C:\Users\Alisher\OneDrive\Documents\Академия Шаг\WinForms\HomeWorks\HW_WinForms_ListItems\Task\obj\Debug\Task.pdb
+C:\Users\Alisher\OneDrive\Documents\Академия Шаг\C#\GitHub\HW_WinForms_ListItems\HW_WinForms_ListItems\Task\bin\Debug\Task.exe.config
+C:\Users\Alisher\OneDrive\Documents\Академия Шаг\C#\GitHub\HW_WinForms_ListItems\HW_WinForms_ListItems\Task\bin\Debug\Task.exe
+C:\Users\Alisher\OneDrive\Documents\Академия Шаг\C#\GitHub\HW_WinForms_ListItems\HW_WinForms_ListItems\Task\bin\Debug\Task.pdb
+C:\Users\Alisher\OneDrive\Documents\Академия Шаг\C#\GitHub\HW_WinForms_ListItems\HW_WinForms_ListItems\Task\obj\Debug\Task.csprojResolveAssemblyReference.cache
+C:\Users\Alisher\OneDrive\Documents\Академия Шаг\C#\GitHub\HW_WinForms_ListItems\HW_WinForms_ListItems\Task\obj\Debug\Task.OilAndCafe.resources
+C:\Users\Alisher\OneDrive\Documents\Академия Шаг\C#\GitHub\HW_WinForms_ListItems\HW_WinForms_ListItems\Task\obj\Debug\Task.Properties.Resources.resources
+C:\Users\Alisher\OneDrive\Documents\Академия Шаг\C#\GitHub\HW_WinForms_ListItems\HW_WinForms_ListItems\Task\obj\Debug\Task.csproj.GenerateResource.Cache
+C:\Users\Alisher\OneDrive\Documents\Академия Шаг\C#\GitHub\HW_WinForms_ListItems\HW_WinForms_ListItems\Task\obj\Debug\Task.csproj.CoreCompileInputs.cache
+C:\Users\Alisher\OneDrive\Documents\Академия Шаг\C#\GitHub\HW_WinForms_ListItems\HW_WinForms_ListItems\Task\obj\Debug\Task.exe
+C:\Users\Alisher\OneDrive\Documents\Академия Шаг\C#\GitHub\HW_WinForms_ListItems\HW_WinForms_ListItems\Task\obj\Debug\Task.pdb
