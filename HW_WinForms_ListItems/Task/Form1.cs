@@ -16,14 +16,17 @@ namespace Task
             if (comboBoxGas.Text == "АИ-80")
             {
                 textBoxPriceGas.Text = priceGas80.ToString();
+                textBoxCountGas.Focus();
             }
             else if (comboBoxGas.Text == "АИ-92")
             {
                 textBoxPriceGas.Text = priceGas92.ToString();
+                textBoxCountGas.Focus();
             }
             else if (comboBoxGas.Text == "АИ-95")
             {
                 textBoxPriceGas.Text = priceGas95.ToString();
+                textBoxCountGas.Focus();
             }
         }
 
@@ -154,14 +157,20 @@ namespace Task
         
         private void ButtonClear_Click(object sender, EventArgs e)
         {
+            comboBoxGas.ResetText();
+            textBoxPriceGas.ResetText();
+            radioButtonGasCount.Checked = true;
+            textBoxCountGas.ResetText();
+            textBoxSumGas.ResetText();
             checkBoxHotDog.Checked = false;
             checkBoxGamburger.Checked = false;
             checkBoxFri.Checked = false;
             checkBoxCola.Checked = false;
-            labelCafePayment.ResetText();
-            labelGasPayment.ResetText();
-            labelCalc.ResetText();
+            priceProductTextBox.ResetText();
+            priceGasTextBox.ResetText();
+            totalPriceTextBox.ResetText();
         }
+
         private int sumProduct = 0;
         private int sumGas = 0;
         private int sumTotal = 0;
@@ -169,40 +178,29 @@ namespace Task
 
         private int priceGas;
         private int countGas;
-        private int sum;
+        private int totalRevenues = 0;
+
         private void ButtonCalc_Click(object sender, EventArgs e)
         {
             //Oil
             if (radioButtonGasCount.Checked)
             {
-                if(textBoxPriceGas.Text != null)
-                {
-                    bool resPrice = Int32.TryParse(textBoxPriceGas.Text, out priceGas);
-                }
-                else
-                {
-                    MessageBox.Show("Выберите марку бензина!");
-                }
+                bool resPrice = Int32.TryParse(textBoxPriceGas.Text, out priceGas);
                 bool resCount = Int32.TryParse(textBoxCountGas.Text, out countGas);
                 sumGas = priceGas * countGas;
-                labelGasPayment.Text = sumGas.ToString();
+                
+                priceGasTextBox.Text = sumGas.ToString();
             }
             else if (radioButtonSumGas.Checked)
             {
-                if (comboBoxGas.Text != null)
-                {
-                    priceGas = Int32.Parse(textBoxPriceGas.Text);
-                    sum = Int32.Parse(textBoxSumGas.Text);
-                    sumGas = sum / priceGas;
-                    labelGasPayment.Text = sumGas.ToString();
-                }
-                else
-                {
-                    MessageBox.Show("Выберите марку бензина!");
-                }
+                priceGas = Int32.Parse(textBoxPriceGas.Text);
+                sumGas = Int32.Parse(textBoxSumGas.Text);
+                countGas = sumGas / priceGas;
+                textBoxCountGas.Text = countGas.ToString();
+                priceGasTextBox.Text = countGas.ToString();
             }
 
-                //Cafe
+            //Cafe
             if (checkBoxHotDog.Checked | checkBoxGamburger.Checked | checkBoxFri.Checked | checkBoxCola.Checked)
             {
                 int priceHotDog = Int32.Parse(textBoxPriceHotDog.Text);
@@ -252,11 +250,14 @@ namespace Task
             else
             {
                 sumProduct = 0;
-                labelCafePayment.Text = sumProduct.ToString();
+                priceProductTextBox.Text = sumProduct.ToString();
             }
 
-            labelCafePayment.Text = sumProduct.ToString();
-            
+            priceProductTextBox.Text = sumProduct.ToString();
+            sumTotal = sumProduct + sumGas;
+            totalPriceTextBox.Text = sumTotal.ToString();
+            totalRevenues += sumTotal;
+            totalRevenuesTextBox.Text = totalRevenues.ToString();
         }
     }
 }

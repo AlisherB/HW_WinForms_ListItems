@@ -33,7 +33,6 @@
             this.textBoxPriceGas = new System.Windows.Forms.TextBox();
             this.groupBoxGasToPay = new System.Windows.Forms.GroupBox();
             this.labelСurrency3 = new System.Windows.Forms.Label();
-            this.labelGasPayment = new System.Windows.Forms.Label();
             this.labelСurrency2 = new System.Windows.Forms.Label();
             this.labelGasCount = new System.Windows.Forms.Label();
             this.textBoxSumGas = new System.Windows.Forms.TextBox();
@@ -47,7 +46,6 @@
             this.labelGas = new System.Windows.Forms.Label();
             this.groupBoxCafe = new System.Windows.Forms.GroupBox();
             this.groupBoxCafeToPay = new System.Windows.Forms.GroupBox();
-            this.labelCafePayment = new System.Windows.Forms.Label();
             this.labelCurrency4 = new System.Windows.Forms.Label();
             this.textBoxCountCola = new System.Windows.Forms.TextBox();
             this.textBoxPriceCola = new System.Windows.Forms.TextBox();
@@ -66,8 +64,13 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.buttonClear = new System.Windows.Forms.Button();
             this.buttonImage = new System.Windows.Forms.Button();
-            this.labelCalc = new System.Windows.Forms.Label();
             this.buttonCalc = new System.Windows.Forms.Button();
+            this.priceGasTextBox = new System.Windows.Forms.TextBox();
+            this.priceProductTextBox = new System.Windows.Forms.TextBox();
+            this.totalPriceTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.totalRevenuesTextBox = new System.Windows.Forms.TextBox();
             this.groupBoxGasStation.SuspendLayout();
             this.groupBoxGasToPay.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -108,8 +111,8 @@
             // 
             // groupBoxGasToPay
             // 
+            this.groupBoxGasToPay.Controls.Add(this.priceGasTextBox);
             this.groupBoxGasToPay.Controls.Add(this.labelСurrency3);
-            this.groupBoxGasToPay.Controls.Add(this.labelGasPayment);
             this.groupBoxGasToPay.ForeColor = System.Drawing.SystemColors.Highlight;
             this.groupBoxGasToPay.Location = new System.Drawing.Point(9, 177);
             this.groupBoxGasToPay.Name = "groupBoxGasToPay";
@@ -121,24 +124,13 @@
             // labelСurrency3
             // 
             this.labelСurrency3.AutoSize = true;
+            this.labelСurrency3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelСurrency3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelСurrency3.Location = new System.Drawing.Point(179, 29);
+            this.labelСurrency3.Location = new System.Drawing.Point(175, 29);
             this.labelСurrency3.Name = "labelСurrency3";
-            this.labelСurrency3.Size = new System.Drawing.Size(20, 13);
+            this.labelСurrency3.Size = new System.Drawing.Size(24, 17);
             this.labelСurrency3.TabIndex = 1;
             this.labelСurrency3.Text = "тг.";
-            // 
-            // labelGasPayment
-            // 
-            this.labelGasPayment.AutoSize = true;
-            this.labelGasPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelGasPayment.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelGasPayment.Location = new System.Drawing.Point(114, 20);
-            this.labelGasPayment.Name = "labelGasPayment";
-            this.labelGasPayment.Size = new System.Drawing.Size(59, 26);
-            this.labelGasPayment.TabIndex = 0;
-            this.labelGasPayment.Text = "price";
-            this.labelGasPayment.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelСurrency2
             // 
@@ -163,6 +155,7 @@
             // textBoxSumGas
             // 
             this.textBoxSumGas.Enabled = false;
+            this.textBoxSumGas.ForeColor = System.Drawing.SystemColors.ControlText;
             this.textBoxSumGas.Location = new System.Drawing.Point(120, 139);
             this.textBoxSumGas.Name = "textBoxSumGas";
             this.textBoxSumGas.Size = new System.Drawing.Size(72, 20);
@@ -171,6 +164,7 @@
             // 
             // textBoxCountGas
             // 
+            this.textBoxCountGas.ForeColor = System.Drawing.SystemColors.ControlText;
             this.textBoxCountGas.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.textBoxCountGas.Location = new System.Drawing.Point(120, 109);
             this.textBoxCountGas.Name = "textBoxCountGas";
@@ -229,6 +223,7 @@
             // comboBoxGas
             // 
             this.comboBoxGas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxGas.ForeColor = System.Drawing.SystemColors.ControlText;
             this.comboBoxGas.FormattingEnabled = true;
             this.comboBoxGas.Items.AddRange(new object[] {
             "АИ-80",
@@ -287,7 +282,7 @@
             // 
             // groupBoxCafeToPay
             // 
-            this.groupBoxCafeToPay.Controls.Add(this.labelCafePayment);
+            this.groupBoxCafeToPay.Controls.Add(this.priceProductTextBox);
             this.groupBoxCafeToPay.Controls.Add(this.labelCurrency4);
             this.groupBoxCafeToPay.ForeColor = System.Drawing.SystemColors.Highlight;
             this.groupBoxCafeToPay.Location = new System.Drawing.Point(7, 177);
@@ -297,25 +292,14 @@
             this.groupBoxCafeToPay.TabStop = false;
             this.groupBoxCafeToPay.Text = "К оплате:";
             // 
-            // labelCafePayment
-            // 
-            this.labelCafePayment.AutoSize = true;
-            this.labelCafePayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelCafePayment.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelCafePayment.Location = new System.Drawing.Point(106, 20);
-            this.labelCafePayment.Name = "labelCafePayment";
-            this.labelCafePayment.Size = new System.Drawing.Size(59, 26);
-            this.labelCafePayment.TabIndex = 3;
-            this.labelCafePayment.Text = "price";
-            this.labelCafePayment.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // labelCurrency4
             // 
             this.labelCurrency4.AutoSize = true;
+            this.labelCurrency4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelCurrency4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelCurrency4.Location = new System.Drawing.Point(167, 29);
+            this.labelCurrency4.Location = new System.Drawing.Point(181, 29);
             this.labelCurrency4.Name = "labelCurrency4";
-            this.labelCurrency4.Size = new System.Drawing.Size(20, 13);
+            this.labelCurrency4.Size = new System.Drawing.Size(24, 17);
             this.labelCurrency4.TabIndex = 2;
             this.labelCurrency4.Text = "тг.";
             // 
@@ -333,6 +317,7 @@
             // textBoxPriceCola
             // 
             this.textBoxPriceCola.Enabled = false;
+            this.textBoxPriceCola.ForeColor = System.Drawing.Color.Red;
             this.textBoxPriceCola.Location = new System.Drawing.Point(118, 123);
             this.textBoxPriceCola.Name = "textBoxPriceCola";
             this.textBoxPriceCola.Size = new System.Drawing.Size(45, 20);
@@ -354,6 +339,7 @@
             // textBoxPriceFri
             // 
             this.textBoxPriceFri.Enabled = false;
+            this.textBoxPriceFri.ForeColor = System.Drawing.Color.Red;
             this.textBoxPriceFri.Location = new System.Drawing.Point(118, 94);
             this.textBoxPriceFri.Name = "textBoxPriceFri";
             this.textBoxPriceFri.Size = new System.Drawing.Size(45, 20);
@@ -375,6 +361,7 @@
             // textBoxPriceGamb
             // 
             this.textBoxPriceGamb.Enabled = false;
+            this.textBoxPriceGamb.ForeColor = System.Drawing.Color.Red;
             this.textBoxPriceGamb.Location = new System.Drawing.Point(118, 64);
             this.textBoxPriceGamb.Name = "textBoxPriceGamb";
             this.textBoxPriceGamb.Size = new System.Drawing.Size(45, 20);
@@ -396,6 +383,7 @@
             // textBoxPriceHotDog
             // 
             this.textBoxPriceHotDog.Enabled = false;
+            this.textBoxPriceHotDog.ForeColor = System.Drawing.Color.Red;
             this.textBoxPriceHotDog.Location = new System.Drawing.Point(118, 36);
             this.textBoxPriceHotDog.Name = "textBoxPriceHotDog";
             this.textBoxPriceHotDog.Size = new System.Drawing.Size(45, 20);
@@ -477,9 +465,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.totalPriceTextBox);
             this.groupBox1.Controls.Add(this.buttonClear);
             this.groupBox1.Controls.Add(this.buttonImage);
-            this.groupBox1.Controls.Add(this.labelCalc);
             this.groupBox1.Controls.Add(this.buttonCalc);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.Highlight;
@@ -495,7 +484,7 @@
             this.buttonClear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonClear.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonClear.Location = new System.Drawing.Point(201, 40);
+            this.buttonClear.Location = new System.Drawing.Point(201, 36);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(111, 50);
             this.buttonClear.TabIndex = 3;
@@ -511,29 +500,18 @@
             this.buttonImage.Enabled = false;
             this.buttonImage.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonImage.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonImage.Location = new System.Drawing.Point(9, 40);
+            this.buttonImage.Location = new System.Drawing.Point(9, 36);
             this.buttonImage.Name = "buttonImage";
             this.buttonImage.Size = new System.Drawing.Size(59, 50);
             this.buttonImage.TabIndex = 2;
             this.buttonImage.UseVisualStyleBackColor = false;
-            // 
-            // labelCalc
-            // 
-            this.labelCalc.AutoSize = true;
-            this.labelCalc.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelCalc.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelCalc.Location = new System.Drawing.Point(346, 40);
-            this.labelCalc.Name = "labelCalc";
-            this.labelCalc.Size = new System.Drawing.Size(123, 39);
-            this.labelCalc.TabIndex = 1;
-            this.labelCalc.Text = "PRICE";
             // 
             // buttonCalc
             // 
             this.buttonCalc.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonCalc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonCalc.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonCalc.Location = new System.Drawing.Point(81, 40);
+            this.buttonCalc.Location = new System.Drawing.Point(81, 36);
             this.buttonCalc.Name = "buttonCalc";
             this.buttonCalc.Size = new System.Drawing.Size(111, 50);
             this.buttonCalc.TabIndex = 0;
@@ -541,19 +519,94 @@
             this.buttonCalc.UseVisualStyleBackColor = true;
             this.buttonCalc.Click += new System.EventHandler(this.ButtonCalc_Click);
             // 
+            // priceGasTextBox
+            // 
+            this.priceGasTextBox.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.priceGasTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.priceGasTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.priceGasTextBox.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.priceGasTextBox.Location = new System.Drawing.Point(73, 21);
+            this.priceGasTextBox.Multiline = true;
+            this.priceGasTextBox.Name = "priceGasTextBox";
+            this.priceGasTextBox.ReadOnly = true;
+            this.priceGasTextBox.Size = new System.Drawing.Size(100, 30);
+            this.priceGasTextBox.TabIndex = 2;
+            this.priceGasTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // priceProductTextBox
+            // 
+            this.priceProductTextBox.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.priceProductTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.priceProductTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.priceProductTextBox.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.priceProductTextBox.Location = new System.Drawing.Point(78, 21);
+            this.priceProductTextBox.Multiline = true;
+            this.priceProductTextBox.Name = "priceProductTextBox";
+            this.priceProductTextBox.ReadOnly = true;
+            this.priceProductTextBox.Size = new System.Drawing.Size(100, 30);
+            this.priceProductTextBox.TabIndex = 4;
+            this.priceProductTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // totalPriceTextBox
+            // 
+            this.totalPriceTextBox.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.totalPriceTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.totalPriceTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.totalPriceTextBox.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.totalPriceTextBox.Location = new System.Drawing.Point(318, 36);
+            this.totalPriceTextBox.Multiline = true;
+            this.totalPriceTextBox.Name = "totalPriceTextBox";
+            this.totalPriceTextBox.ReadOnly = true;
+            this.totalPriceTextBox.Size = new System.Drawing.Size(125, 50);
+            this.totalPriceTextBox.TabIndex = 4;
+            this.totalPriceTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label1.Location = new System.Drawing.Point(449, 57);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 20);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "тг.";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(10, 407);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(171, 17);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Общая выручка за день:";
+            // 
+            // totalRevenuesTextBox
+            // 
+            this.totalRevenuesTextBox.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.totalRevenuesTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.totalRevenuesTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.totalRevenuesTextBox.ForeColor = System.Drawing.Color.DarkRed;
+            this.totalRevenuesTextBox.Location = new System.Drawing.Point(183, 409);
+            this.totalRevenuesTextBox.Name = "totalRevenuesTextBox";
+            this.totalRevenuesTextBox.Size = new System.Drawing.Size(100, 16);
+            this.totalRevenuesTextBox.TabIndex = 4;
+            // 
             // OilAndCafe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(529, 416);
+            this.ClientSize = new System.Drawing.Size(529, 431);
+            this.Controls.Add(this.totalRevenuesTextBox);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBoxCafe);
             this.Controls.Add(this.groupBoxGasStation);
-            this.MaximumSize = new System.Drawing.Size(545, 455);
-            this.MinimumSize = new System.Drawing.Size(545, 455);
+            this.MaximumSize = new System.Drawing.Size(545, 500);
+            this.MinimumSize = new System.Drawing.Size(545, 470);
             this.Name = "OilAndCafe";
-            this.Opacity = 0.98D;
             this.Text = "BestOil";
             this.groupBoxGasStation.ResumeLayout(false);
             this.groupBoxGasStation.PerformLayout();
@@ -568,6 +621,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -587,7 +641,6 @@
         private System.Windows.Forms.Label labelGas;
         private System.Windows.Forms.GroupBox groupBoxGasToPay;
         private System.Windows.Forms.Label labelСurrency3;
-        private System.Windows.Forms.Label labelGasPayment;
         private System.Windows.Forms.TextBox textBoxPriceGas;
         private System.Windows.Forms.GroupBox groupBoxCafe;
         private System.Windows.Forms.TextBox textBoxCountCola;
@@ -606,12 +659,16 @@
         private System.Windows.Forms.CheckBox checkBoxHotDog;
         private System.Windows.Forms.GroupBox groupBoxCafeToPay;
         private System.Windows.Forms.Label labelCurrency4;
-        private System.Windows.Forms.Label labelCafePayment;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button buttonImage;
-        private System.Windows.Forms.Label labelCalc;
         private System.Windows.Forms.Button buttonCalc;
         private System.Windows.Forms.Button buttonClear;
+        private System.Windows.Forms.TextBox priceGasTextBox;
+        private System.Windows.Forms.TextBox priceProductTextBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox totalPriceTextBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox totalRevenuesTextBox;
     }
 }
 
