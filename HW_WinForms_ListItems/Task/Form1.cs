@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Timers;
 namespace Task
 {
     public partial class OilAndCafe : Form
     {
         private int priceGas80 = 90, priceGas92 = 140, priceGas95 = 150;
-        System.Timers.Timer timer;
+
         public OilAndCafe()
         {
             InitializeComponent();
@@ -52,6 +51,7 @@ namespace Task
                 textBoxCountGas.Enabled = false;
                 textBoxSumGas.Enabled = true;
                 textBoxSumGas.Focus();
+                labelСurrency3.Text = "л.";
             }
             else
             {
@@ -151,13 +151,58 @@ namespace Task
             if ((key.KeyChar <= 47 || key.KeyChar >= 59) && key.KeyChar != 8)
                 key.Handled = true;
         }
-
+        
+        private void ButtonClear_Click(object sender, EventArgs e)
+        {
+            checkBoxHotDog.Checked = false;
+            checkBoxGamburger.Checked = false;
+            checkBoxFri.Checked = false;
+            checkBoxCola.Checked = false;
+            labelCafePayment.ResetText();
+            labelGasPayment.ResetText();
+            labelCalc.ResetText();
+        }
         private int sumProduct = 0;
+        private int sumGas = 0;
         private int sumTotal = 0;
         private int countHotDog = 0, countGamb = 0, countFri = 0, countCola = 0;
-        private int priceHot = 250;
+
+        private int priceGas;
+        private int countGas;
+        private int sum;
         private void ButtonCalc_Click(object sender, EventArgs e)
         {
+            //Oil
+            if (radioButtonGasCount.Checked)
+            {
+                if(textBoxPriceGas.Text != null)
+                {
+                    bool resPrice = Int32.TryParse(textBoxPriceGas.Text, out priceGas);
+                }
+                else
+                {
+                    MessageBox.Show("Выберите марку бензина!");
+                }
+                bool resCount = Int32.TryParse(textBoxCountGas.Text, out countGas);
+                sumGas = priceGas * countGas;
+                labelGasPayment.Text = sumGas.ToString();
+            }
+            else if (radioButtonSumGas.Checked)
+            {
+                if (comboBoxGas.Text != null)
+                {
+                    priceGas = Int32.Parse(textBoxPriceGas.Text);
+                    sum = Int32.Parse(textBoxSumGas.Text);
+                    sumGas = sum / priceGas;
+                    labelGasPayment.Text = sumGas.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Выберите марку бензина!");
+                }
+            }
+
+                //Cafe
             if (checkBoxHotDog.Checked | checkBoxGamburger.Checked | checkBoxFri.Checked | checkBoxCola.Checked)
             {
                 int priceHotDog = Int32.Parse(textBoxPriceHotDog.Text);
@@ -211,21 +256,7 @@ namespace Task
             }
 
             labelCafePayment.Text = sumProduct.ToString();
-            timer = new System.Timers.Timer(3000);
-            timer.Elapsed += new ElapsedEventHandler(ClearForm);
-            timer.Enabled = true;
-            //timer.Start();
             
-            
-
-        }
-        private static void ClearForm(object sender, ElapsedEventArgs e)
-        {
-            MessageBox.Show("Очистить форму?");
-            checkBoxHotDog.Checked = false;
-            checkBoxGamburger.Checked = false;
-            checkBoxFri.Checked = false;
-            checkBoxCola.Checked = false;
         }
     }
 }

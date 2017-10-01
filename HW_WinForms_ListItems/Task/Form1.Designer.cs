@@ -64,6 +64,7 @@
             this.checkBoxGamburger = new System.Windows.Forms.CheckBox();
             this.checkBoxHotDog = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.buttonClear = new System.Windows.Forms.Button();
             this.buttonImage = new System.Windows.Forms.Button();
             this.labelCalc = new System.Windows.Forms.Label();
             this.buttonCalc = new System.Windows.Forms.Button();
@@ -137,6 +138,7 @@
             this.labelGasPayment.Size = new System.Drawing.Size(59, 26);
             this.labelGasPayment.TabIndex = 0;
             this.labelGasPayment.Text = "price";
+            this.labelGasPayment.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelСurrency2
             // 
@@ -169,7 +171,6 @@
             // 
             // textBoxCountGas
             // 
-            this.textBoxCountGas.Enabled = false;
             this.textBoxCountGas.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.textBoxCountGas.Location = new System.Drawing.Point(120, 109);
             this.textBoxCountGas.Name = "textBoxCountGas";
@@ -301,11 +302,12 @@
             this.labelCafePayment.AutoSize = true;
             this.labelCafePayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelCafePayment.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelCafePayment.Location = new System.Drawing.Point(91, 20);
+            this.labelCafePayment.Location = new System.Drawing.Point(106, 20);
             this.labelCafePayment.Name = "labelCafePayment";
             this.labelCafePayment.Size = new System.Drawing.Size(59, 26);
             this.labelCafePayment.TabIndex = 3;
             this.labelCafePayment.Text = "price";
+            this.labelCafePayment.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelCurrency4
             // 
@@ -475,6 +477,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.buttonClear);
             this.groupBox1.Controls.Add(this.buttonImage);
             this.groupBox1.Controls.Add(this.labelCalc);
             this.groupBox1.Controls.Add(this.buttonCalc);
@@ -487,6 +490,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ВСЕГО к оплате:";
             // 
+            // buttonClear
+            // 
+            this.buttonClear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonClear.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonClear.Location = new System.Drawing.Point(201, 40);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(111, 50);
+            this.buttonClear.TabIndex = 3;
+            this.buttonClear.Text = "Очистить";
+            this.buttonClear.UseVisualStyleBackColor = true;
+            this.buttonClear.Click += new System.EventHandler(this.ButtonClear_Click);
+            // 
             // buttonImage
             // 
             this.buttonImage.BackColor = System.Drawing.SystemColors.Control;
@@ -495,7 +511,7 @@
             this.buttonImage.Enabled = false;
             this.buttonImage.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonImage.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonImage.Location = new System.Drawing.Point(14, 40);
+            this.buttonImage.Location = new System.Drawing.Point(9, 40);
             this.buttonImage.Name = "buttonImage";
             this.buttonImage.Size = new System.Drawing.Size(59, 50);
             this.buttonImage.TabIndex = 2;
@@ -506,7 +522,7 @@
             this.labelCalc.AutoSize = true;
             this.labelCalc.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelCalc.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelCalc.Location = new System.Drawing.Point(323, 40);
+            this.labelCalc.Location = new System.Drawing.Point(346, 40);
             this.labelCalc.Name = "labelCalc";
             this.labelCalc.Size = new System.Drawing.Size(123, 39);
             this.labelCalc.TabIndex = 1;
@@ -515,12 +531,11 @@
             // buttonCalc
             // 
             this.buttonCalc.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonCalc.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonCalc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonCalc.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonCalc.Location = new System.Drawing.Point(103, 40);
+            this.buttonCalc.Location = new System.Drawing.Point(81, 40);
             this.buttonCalc.Name = "buttonCalc";
-            this.buttonCalc.Size = new System.Drawing.Size(134, 50);
+            this.buttonCalc.Size = new System.Drawing.Size(111, 50);
             this.buttonCalc.TabIndex = 0;
             this.buttonCalc.Text = "Рассчитать";
             this.buttonCalc.UseVisualStyleBackColor = true;
@@ -530,6 +545,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(529, 416);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBoxCafe);
@@ -537,6 +553,7 @@
             this.MaximumSize = new System.Drawing.Size(545, 455);
             this.MinimumSize = new System.Drawing.Size(545, 455);
             this.Name = "OilAndCafe";
+            this.Opacity = 0.98D;
             this.Text = "BestOil";
             this.groupBoxGasStation.ResumeLayout(false);
             this.groupBoxGasStation.PerformLayout();
@@ -594,6 +611,7 @@
         private System.Windows.Forms.Button buttonImage;
         private System.Windows.Forms.Label labelCalc;
         private System.Windows.Forms.Button buttonCalc;
+        private System.Windows.Forms.Button buttonClear;
     }
 }
 
